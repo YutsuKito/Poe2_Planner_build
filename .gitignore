@@ -13,3 +13,7 @@ desktop.ini
 
 # Logs / temp
 *.log
+
+# Infraestrutura do servidor (não expor no repo público)
+nginx.conf
+deploy.sh
