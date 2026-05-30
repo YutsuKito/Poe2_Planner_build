@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PoE2 Build Planner — Import & Export</title>
+  <meta name="description" content="Importe sua build do Path of Building 2, visualize o snapshot completo e exporte diretamente para o Build Planner nativo do Path of Exile 2." />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Favicon inline -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚔️</text></svg>" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       HEADER
+  ═══════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-logo">
+        <div class="header-logo-icon">⚔️</div>
+        <h1 class="site-title">PoE2 Build Planner</h1>
+      </div>
+      <p class="site-subtitle">
+        Importe sua build do Path of Building 2 e exporte o arquivo <code style="color:var(--gold-mid);background:rgba(200,169,110,0.1);padding:1px 6px;border-radius:4px">.build</code> para o jogo
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- ═══════════════════════════════════════
+           SEÇÃO 1 — GUIA DE CONVERSÃO
+      ═══════════════════════════════════════ -->
+      <section class="section" id="section-guide" aria-labelledby="guide-title">
+        <div class="section-header">
+          <div class="section-number">1</div>
+          <h2 class="section-title" id="guide-title">Como Obter o XML da Sua Build</h2>
+        </div>
+
+        <div class="card">
+          <div class="guide-intro">
+            <p>
+              O Path of Building 2 exporta um código comprimido. Você precisará convertê-lo para XML
+              usando o <strong style="color:var(--gold-mid)">CyberChef</strong> antes de colar aqui.
+              Siga os passos abaixo (clique nas imagens para ampliar):
+            </p>
+            <a
+              id="cyberchef-link"
+              class="cyberchef-link"
+              href="https://gchq.github.io/CyberChef/#recipe=From_Base64('A-Za-z0-9-_',true,false)Zlib_Inflate(0,0,'Adaptive',false,false)"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="link-icon">🔗</span>
+              Abrir CyberChef Pré-configurado
+            </a>
+          </div>
+
+          <div class="steps-grid">
+
+            <!-- Passo 1 -->
+            <div
+              class="step-card"
+              id="step-1"
+              data-img="images/como_gerar_code.png"
+              data-alt="PASSO 1 — Como gerar o código no Path of Building 2"
+              role="button"
+              tabindex="0"
+              aria-label="Ampliar imagem: Passo 1 - Gerar código no PoB2"
+            >
+              <div class="step-badge">
+                <span class="step-badge-num">PASSO 1</span>
+                <span class="step-label">Gerar código no PoB2</span>
+              </div>
+              <div class="step-image-wrap">
+                <img src="images/como_gerar_code.png" alt="Como gerar o código no Path of Building 2" loading="lazy" />
+                <div class="step-image-overlay"><span class="zoom-icon">🔍</span></div>
+              </div>
+            </div>
+
+            <!-- Passo 2 -->
+            <div
+              class="step-card"
+              id="step-2"
+              data-img="images/copie_o_codigo.png"
+              data-alt="PASSO 2 — Copiar o código gerado"
+              role="button"
+              tabindex="0"
+              aria-label="Ampliar imagem: Passo 2 - Copiar o código"
+            >
+              <div class="step-badge">
+                <span class="step-badge-num">PASSO 2</span>
+                <span class="step-label">Copiar o código</span>
+              </div>
+              <div class="step-image-wrap">
+                <img src="images/copie_o_codigo.png" alt="Como copiar o código gerado" loading="lazy" />
+                <div class="step-image-overlay"><span class="zoom-icon">🔍</span></div>
+              </div>
+            </div>
+
+            <!-- Passo 3 -->
+            <div
+              class="step-card"
+              id="step-3"
+              data-img="images/cole_em_input_e_clique_em_bake.png"
+              data-alt="PASSO 3 — Colar no CyberChef e clicar em Bake"
+              role="button"
+              tabindex="0"
+              aria-label="Ampliar imagem: Passo 3 - Colar no CyberChef"
+            >
+              <div class="step-badge">
+                <span class="step-badge-num">PASSO 3</span>
+                <span class="step-label">Colar no CyberChef &amp; Bake</span>
+              </div>
+              <div class="step-image-wrap">
+                <img src="images/cole_em_input_e_clique_em_bake.png" alt="Como colar no CyberChef e clicar em Bake" loading="lazy" />
+                <div class="step-image-overlay"><span class="zoom-icon">🔍</span></div>
+              </div>
+            </div>
+
+            <!-- Passo 4 -->
+            <div
+              class="step-card"
+              id="step-4"
+              data-img="images/copie_o_xml.png"
+              data-alt="PASSO 4 — Copiar o XML do Output"
+              role="button"
+              tabindex="0"
+              aria-label="Ampliar imagem: Passo 4 - Copiar XML do Output"
+            >
+              <div class="step-badge">
+                <span class="step-badge-num">PASSO 4</span>
+                <span class="step-label">Copiar o XML do Output</span>
+              </div>
+              <div class="step-image-wrap">
+                <img src="images/copie_o_xml.png" alt="Como copiar o XML do Output do CyberChef" loading="lazy" />
+                <div class="step-image-overlay"><span class="zoom-icon">🔍</span></div>
+              </div>
+            </div>
+
+            <!-- Passo 5 -->
+            <div
+              class="step-card"
+              id="step-5"
+              data-img="images/cole_o_xml.png"
+              data-alt="PASSO 5 — Colar o XML no campo abaixo"
+              role="button"
+              tabindex="0"
+              aria-label="Ampliar imagem: Passo 5 - Colar XML no campo"
+            >
+              <div class="step-badge">
+                <span class="step-badge-num">PASSO 5</span>
+                <span class="step-label">Colar o XML abaixo ↓</span>
+              </div>
+              <div class="step-image-wrap">
+                <img src="images/cole_o_xml.png" alt="Como colar o XML no campo do importador" loading="lazy" />
+                <div class="step-image-overlay"><span class="zoom-icon">🔍</span></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ═══════════════════════════════════════
+           SEÇÃO 2 — IMPORTAR XML
+      ═══════════════════════════════════════ -->
+      <section class="section" id="section-import" aria-labelledby="import-title">
+        <div class="section-header">
+          <div class="section-number">2</div>
+          <h2 class="section-title" id="import-title">Colar e Importar o XML</h2>
+        </div>
+
+        <div class="card">
+          <label for="xml-textarea" style="display:block;font-size:0.88rem;color:var(--text-secondary);margin-bottom:10px">
+            Cole aqui o XML completo gerado pelo CyberChef:
+          </label>
+          <textarea
+            id="xml-textarea"
+            class="xml-textarea"
+            placeholder="&lt;PathOfBuilding&gt;&#10;  &lt;Build level=&quot;90&quot; className=&quot;Witch&quot; ascendClassName=&quot;Stormweaver&quot; ...&gt;&#10;    ...&#10;  &lt;/Build&gt;&#10;&lt;/PathOfBuilding&gt;"
+            aria-label="Campo para colar o XML do Path of Building"
+            spellcheck="false"
+          ></textarea>
+          <div class="textarea-hint">
+            <span>💡</span>
+            <span>O XML começa com <code style="color:var(--gold-dim)">&lt;PathOfBuilding&gt;</code> ou <code style="color:var(--gold-dim)">&lt;PathOfBuilding2&gt;</code></span>
+          </div>
+
+          <div
+            id="import-error"
+            class="alert alert-error hidden"
+            role="alert"
+            aria-live="assertive"
+          ></div>
+
+          <div class="btn-group">
+            <button
+              id="import-btn"
+              class="btn btn-primary"
+              type="button"
+              aria-label="Importar build a partir do XML colado"
+            >
+              ⚡ Importar Build
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ═══════════════════════════════════════
+           SEÇÃO 3 — SNAPSHOT PREVIEW
+      ═══════════════════════════════════════ -->
+      <section class="section hidden" id="snapshot-section" aria-labelledby="snapshot-title" aria-live="polite">
+        <div class="section-header">
+          <div class="section-number">3</div>
+          <h2 class="section-title" id="snapshot-title">Preview da Build Importada</h2>
+        </div>
+
+        <div class="card">
+          <div id="snapshot-content"></div>
+
+          <div class="btn-group" style="margin-top:24px">
+            <button
+              id="generate-export-btn"
+              class="btn btn-secondary"
+              type="button"
+              disabled
+              aria-label="Gerar arquivo .build a partir da build importada"
+            >
+              📦 Gerar Arquivo .build
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════
+           SEÇÃO 4 — EXPORT PREVIEW + DOWNLOAD
+      ═══════════════════════════════════════ -->
+      <section class="section hidden" id="export-section" aria-labelledby="export-title" aria-live="polite">
+        <div class="section-divider"></div>
+        <div class="section-header">
+          <div class="section-number">4</div>
+          <h2 class="section-title" id="export-title">Baixar o Arquivo .build</h2>
+        </div>
+
+        <div class="card">
+          <div
+            id="export-error"
+            class="alert alert-error hidden"
+            role="alert"
+            aria-live="assertive"
+          ></div>
+
+          <div id="export-content"></div>
+
+          <div class="btn-group" style="margin-top: 20px;">
+            <button
+              id="download-btn"
+              class="btn btn-download"
+              type="button"
+              disabled
+              aria-label="Baixar arquivo .build para o Path of Exile 2 Build Planner"
+            >
+              ⬇️ Baixar Arquivo .build
+            </button>
+          </div>
+
+          <!-- Instruções de instalação -->
+          <div class="install-box">
+            <h4>📂 Como Instalar no Jogo</h4>
+            <ol class="install-steps">
+              <li>Após o download, abra o <strong>Explorador de Arquivos</strong> do Windows.</li>
+              <li>
+                Cole o seguinte caminho na barra de endereços e pressione <strong>Enter</strong>:<br />
+                <span class="path-code">%USERPROFILE%\Documents\My Games\Path of Exile 2\BuildPlanner</span>
+              </li>
+              <li>Se a pasta <code style="color:var(--gold-mid);font-size:0.85rem">BuildPlanner</code> não existir, crie-a clicando com o botão direito → <strong>Nova pasta</strong>.</li>
+              <li>
+                Cole o arquivo <code style="color:var(--gold-mid);font-size:0.85rem">.build</code> baixado dentro desta pasta.
+              </li>
+              <li>
+                Reinicie o jogo (ou navegue até a tela de passivas/personagem) e acesse o <strong>Build Planner</strong> nativo do PoE2.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /.container -->
+  </main>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        PoE2 Build Planner Extractor &nbsp;·&nbsp; Processamento 100% local &nbsp;·&nbsp;
+        Nenhum dado é enviado a servidores &nbsp;·&nbsp;
+        <a
+          href="https://gchq.github.io/CyberChef/#recipe=From_Base64('A-Za-z0-9-_',true,false)Zlib_Inflate(0,0,'Adaptive',false,false)"
+          target="_blank"
+          rel="noopener noreferrer"
+        >CyberChef</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       MODAL DE ZOOM DE IMAGEM
+  ═══════════════════════════════════════ -->
+  <div
+    id="modal-backdrop"
+    class="modal-backdrop"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Visualização ampliada da imagem"
+  >
+    <div class="modal-content">
+      <button id="modal-close" class="modal-close" aria-label="Fechar imagem ampliada" title="Fechar (ESC)">✕</button>
+      <img id="modal-img" src="" alt="" />
+      <p id="modal-caption" class="modal-caption"></p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="extractor-browser.js"></script>
+  <script src="app.js"></script>
+
+  <!-- Keyboard support for step cards -->
+  <script>
+    document.querySelectorAll(".step-card[data-img]").forEach(card => {
+      card.addEventListener("keydown", e => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          card.click();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
